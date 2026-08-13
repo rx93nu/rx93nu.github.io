@@ -1,21 +1,91 @@
-
 <!DOCTYPE html>
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>표정 배틀 개인정보처리방침</title>
+<title>표정 배틀 개인정보처리방침 / プライバシーポリシー / Privacy Policy</title>
 <style>
-  body { font-family: -apple-system, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
-         max-width: 720px; margin: 0 auto; padding: 24px; line-height: 1.7; color: #222; }
-  h1 { font-size: 1.6em; } h2 { font-size: 1.2em; margin-top: 2em; }
-  @media (prefers-color-scheme: dark) { body { background: #17131a; color: #ddd; } a { color: #f48fb1; } }
+  :root {
+    --text: #222;
+    --muted: #666;
+    --bg: #fff;
+    --accent: #7b3fe4;
+    --accent-bg: #f4eefe;
+    --border: #e5e0ee;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo",
+                 "Malgun Gothic", "Noto Sans JP", "Hiragino Kaku Gothic ProN",
+                 "Segoe UI", sans-serif;
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 24px;
+    line-height: 1.7;
+    color: var(--text);
+    background: var(--bg);
+  }
+  h1 { font-size: 1.5em; margin-bottom: 4px; }
+  h2 { font-size: 1.15em; margin-top: 2em; }
+  .effective-date { color: var(--muted); font-size: 0.9em; margin-top: 0; }
+
+  /* Language switcher */
+  .lang-switch {
+    display: flex;
+    gap: 8px;
+    margin: 20px 0 28px;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 16px;
+  }
+  .lang-switch button {
+    flex: 1;
+    padding: 10px 12px;
+    font-size: 0.95em;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: var(--bg);
+    color: var(--text);
+    cursor: pointer;
+    transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+  }
+  .lang-switch button:hover { border-color: var(--accent); }
+  .lang-switch button.active {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #fff;
+    font-weight: 600;
+  }
+
+  .lang-block { display: none; }
+  .lang-block.active { display: block; }
+
+  a { color: var(--accent); }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --text: #ddd;
+      --muted: #999;
+      --bg: #17131a;
+      --accent: #c898ff;
+      --accent-bg: #2a2032;
+      --border: #332a3d;
+    }
+    .lang-switch button.active { color: #17131a; }
+  }
 </style>
 </head>
 <body>
-<h1>표정 배틀 개인정보처리방침</h1>
-<p>시행일: 2026년 8월 11일</p>
 
+<div class="lang-switch">
+  <button type="button" data-lang="ko" class="active" onclick="setLang('ko')">한국어</button>
+  <button type="button" data-lang="ja" onclick="setLang('ja')">日本語</button>
+  <button type="button" data-lang="en" onclick="setLang('en')">English</button>
+</div>
+
+<!-- ===================== 한국어 ===================== -->
+<section class="lang-block active" id="block-ko">
+<h1>표정 배틀 개인정보처리방침</h1>
+<p class="effective-date">시행일: 2026년 8월 11일</p>
 <p>본 개인정보처리방침은 모바일 게임 <strong>표정 배틀</strong>(이하 "앱")이 이용자의
 정보를 어떻게 처리하는지 설명합니다.</p>
 
@@ -36,8 +106,8 @@
 <p>앱은 Google AdMob 광고를 표시합니다. Google은 광고 제공 및 부정행위 방지를
 위해 광고 ID(기기 식별자), 대략적인 위치(IP 주소 기반), 광고 상호작용 정보
 등을 수집·처리할 수 있습니다. 자세한 내용은
-<a href="https://policies.google.com/privacy">Google 개인정보처리방침</a> 및
-<a href="https://support.google.com/admob/answer/6128543">AdMob 데이터 처리 안내</a>를
+<a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google 개인정보처리방침</a> 및
+<a href="https://support.google.com/admob/answer/6128543" target="_blank" rel="noopener">AdMob 데이터 처리 안내</a>를
 참고하세요. 기기 설정에서 광고 ID 재설정 또는 맞춤 광고 제한을 선택할 수
 있습니다.</p>
 
@@ -49,5 +119,116 @@
 
 <h2>6. 방침 변경</h2>
 <p>본 방침이 변경되는 경우 이 페이지를 통해 공지합니다.</p>
+</section>
+
+<!-- ===================== 日本語 ===================== -->
+<section class="lang-block" id="block-ja">
+<h1>表情バトル プライバシーポリシー</h1>
+<p class="effective-date">施行日：2026年8月11日</p>
+<p>本プライバシーポリシーは、モバイルゲーム<strong>「表情バトル」</strong>（以下「本アプリ」）が
+利用者の情報をどのように取り扱うかを説明するものです。</p>
+
+<h2>1. カメラおよび顔データ</h2>
+<p>本アプリは、表情採点機能のために端末の前面カメラを使用します。
+顔認識および表情分析は<strong>すべて端末内（オンデバイス）</strong>で行われ、
+カメラ映像・顔画像・表情分析結果が<strong>外部サーバーへ送信または
+保存されることはありません</strong>。ゲーム中に撮影される静止画は、
+利用者が共有ボタンを押して自ら書き出すまでアプリ内に一時的にのみ存在し、
+ゲームセッション終了時に削除されます。</p>
+
+<h2>2. 収集する情報</h2>
+<p>本アプリ自体には会員登録機能がなく、氏名、メールアドレス、連絡先などの
+個人情報を収集しません。ゲーム内で入力するプレイヤー名は端末内でのみ使用され、
+保存されることはありません。</p>
+
+<h2>3. 広告および第三者サービス</h2>
+<p>本アプリはGoogle AdMob広告を表示します。Googleは広告の提供および不正防止の
+ために、広告ID（端末識別子）、おおよその位置情報（IPアドレスに基づく）、
+広告との相互作用情報などを収集・処理する場合があります。詳細については
+<a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Googleプライバシーポリシー</a>および
+<a href="https://support.google.com/admob/answer/6128543" target="_blank" rel="noopener">AdMobのデータ処理について</a>を
+ご確認ください。端末の設定から広告IDのリセットやパーソナライズ広告の
+制限を選択できます。</p>
+
+<h2>4. 児童の個人情報</h2>
+<p>本アプリは13歳未満の児童を対象としていません。</p>
+
+<h2>5. お問い合わせ</h2>
+<p>個人情報の取り扱いに関するお問い合わせ：<a href="mailto:rx.93.1984@gmail.com">rx.93.1984@gmail.com</a></p>
+
+<h2>6. 方針の変更</h2>
+<p>本方針が変更される場合は、このページを通じてお知らせします。</p>
+</section>
+
+<!-- ===================== English ===================== -->
+<section class="lang-block" id="block-en">
+<h1>Expression Battle Privacy Policy</h1>
+<p class="effective-date">Effective Date: August 11, 2026</p>
+<p>This Privacy Policy explains how the mobile game <strong>Expression Battle</strong>
+(the "App") handles user information.</p>
+
+<h2>1. Camera and Facial Data</h2>
+<p>The App uses your device's front-facing camera for its facial expression
+scoring feature. All facial recognition and expression analysis are performed
+<strong>entirely on-device</strong>. Camera footage, facial images, and
+expression analysis results are <strong>never transmitted to or stored on
+any external server</strong>. Still photos captured during gameplay exist
+only temporarily within the App until the user chooses to export them via
+the share button, and are deleted when the game session ends.</p>
+
+<h2>2. Information We Collect</h2>
+<p>The App does not require account registration and does not collect
+personal information such as name, email address, or contact details.
+Player names entered in the game are used only on-device and are not
+stored.</p>
+
+<h2>3. Advertising and Third-Party Services</h2>
+<p>The App displays advertisements via Google AdMob. Google may collect and
+process an advertising ID (device identifier), approximate location (based
+on IP address), and ad interaction data for the purposes of ad delivery and
+fraud prevention. For details, please see the
+<a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy Policy</a>
+and
+<a href="https://support.google.com/admob/answer/6128543" target="_blank" rel="noopener">AdMob's data processing information</a>.
+You may reset your advertising ID or limit ad personalization in your
+device settings.</p>
+
+<h2>4. Children's Privacy</h2>
+<p>The App is not directed at children under the age of 13.</p>
+
+<h2>5. Contact</h2>
+<p>For inquiries regarding personal information handling:
+<a href="mailto:rx.93.1984@gmail.com">rx.93.1984@gmail.com</a></p>
+
+<h2>6. Changes to This Policy</h2>
+<p>Any changes to this policy will be announced on this page.</p>
+</section>
+
+<script>
+  function setLang(lang) {
+    document.querySelectorAll('.lang-block').forEach(function (el) {
+      el.classList.toggle('active', el.id === 'block-' + lang);
+    });
+    document.querySelectorAll('.lang-switch button').forEach(function (btn) {
+      btn.classList.toggle('active', btn.dataset.lang === lang);
+    });
+    try { localStorage.setItem('privacyPolicyLang', lang); } catch (e) {}
+    document.documentElement.lang = lang;
+  }
+
+  (function () {
+    var saved;
+    try { saved = localStorage.getItem('privacyPolicyLang'); } catch (e) {}
+    if (saved && ['ko', 'ja', 'en'].includes(saved)) {
+      setLang(saved);
+    } else {
+      var browserLang = (navigator.language || 'ko').toLowerCase();
+      if (browserLang.startsWith('ja')) setLang('ja');
+      else if (browserLang.startsWith('en')) setLang('en');
+      else setLang('ko');
+    }
+  })();
+</script>
+
 </body>
 </html>

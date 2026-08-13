@@ -1,30 +1,93 @@
-
 <!DOCTYPE html>
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>표정 배틀 지원</title>
+<title>표정 배틀 지원 / サポート / Support</title>
 <style>
-  body { font-family: -apple-system, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
-         max-width: 720px; margin: 0 auto; padding: 24px; line-height: 1.7; color: #222; }
-  h1 { font-size: 1.6em; } h2 { font-size: 1.2em; margin-top: 2em; }
+  :root {
+    --text: #222;
+    --muted: #555;
+    --muted2: #666;
+    --bg: #fff;
+    --accent: #7b3fe4;
+    --border: #ddd;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo",
+                 "Malgun Gothic", "Noto Sans JP", "Hiragino Kaku Gothic ProN",
+                 "Segoe UI", sans-serif;
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 24px;
+    line-height: 1.7;
+    color: var(--text);
+    background: var(--bg);
+  }
+  h1 { font-size: 1.6em; }
+  h2 { font-size: 1.2em; margin-top: 2em; }
   h3 { font-size: 1.02em; margin-top: 1.6em; }
   ul, ol { padding-left: 1.3em; }
-  .lead { color: #555; }
-  .contact { border: 1px solid #ddd; border-radius: 10px; padding: 4px 18px; margin: 1.5em 0; }
-  footer { margin-top: 3em; padding-top: 1em; border-top: 1px solid #ddd;
-           font-size: 0.9em; color: #666; }
+  .lead { color: var(--muted); }
+  .contact { border: 1px solid var(--border); border-radius: 10px; padding: 4px 18px; margin: 1.5em 0; }
+  footer { margin-top: 3em; padding-top: 1em; border-top: 1px solid var(--border);
+           font-size: 0.9em; color: var(--muted2); }
+  a { color: var(--accent); }
+
+  /* Language switcher */
+  .lang-switch {
+    display: flex;
+    gap: 8px;
+    margin: 0 0 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--border);
+  }
+  .lang-switch button {
+    flex: 1;
+    padding: 10px 12px;
+    font-size: 0.95em;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: var(--bg);
+    color: var(--text);
+    cursor: pointer;
+    transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+  }
+  .lang-switch button:hover { border-color: var(--accent); }
+  .lang-switch button.active {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #fff;
+    font-weight: 600;
+  }
+
+  .lang-block { display: none; }
+  .lang-block.active { display: block; }
+
   @media (prefers-color-scheme: dark) {
-    body { background: #17131a; color: #ddd; }
-    a { color: #f48fb1; }
-    .lead { color: #aaa; }
-    .contact { border-color: #3a333f; }
-    footer { border-top-color: #3a333f; color: #999; }
+    :root {
+      --text: #ddd;
+      --muted: #aaa;
+      --muted2: #999;
+      --bg: #17131a;
+      --accent: #c898ff;
+      --border: #3a333f;
+    }
+    .lang-switch button.active { color: #17131a; }
   }
 </style>
 </head>
 <body>
+
+<div class="lang-switch">
+  <button type="button" data-lang="ko" class="active" onclick="setLang('ko')">한국어</button>
+  <button type="button" data-lang="ja" onclick="setLang('ja')">日本語</button>
+  <button type="button" data-lang="en" onclick="setLang('en')">English</button>
+</div>
+
+<!-- ===================== 한국어 ===================== -->
+<section class="lang-block active" id="block-ko">
 <h1>표정 배틀 지원</h1>
 <p class="lead">표정 배틀(Face Battle)을 이용해 주셔서 감사합니다.
 문제가 생겼거나 궁금한 점이 있으면 아래 내용을 먼저 확인해 주세요.
@@ -129,5 +192,265 @@
 <p>표정 배틀 (Face Battle) · 문의 <a href="mailto:rx.93.1984@gmail.com">rx.93.1984@gmail.com</a><br>
 <a href="https://rx93nu.github.io/privacy/facebattle">개인정보처리방침</a></p>
 </footer>
+</section>
+
+<!-- ===================== 日本語 ===================== -->
+<section class="lang-block" id="block-ja">
+<h1>表情バトル サポート</h1>
+<p class="lead">表情バトル（Face Battle）をご利用いただきありがとうございます。
+不具合や不明な点がございましたら、まず以下の内容をご確認ください。
+解決しない場合は、メールにてお問い合わせください。</p>
+
+<div class="contact">
+<h2 style="margin-top:1em">お問い合わせ</h2>
+<p>メール: <a href="mailto:rx.93.1984@gmail.com">rx.93.1984@gmail.com</a></p>
+<p>通常2〜3日以内に返信いたします。お問い合わせの際に以下の情報を
+記載いただくと、より早く状況を確認できます。</p>
+<ul>
+  <li>端末モデル（例：iPhone 15、Galaxy Z Flip5）</li>
+  <li>OSバージョン（例：iOS 18.4、Android 15）</li>
+  <li>アプリのバージョン（App Store / Google Playのアプリ詳細ページで確認）</li>
+  <li>問題が発生した画面とその時の状況</li>
+</ul>
+</div>
+
+<h2>遊び方</h2>
+<ol>
+  <li>一緒に遊ぶメンバーの名前を登録します（2〜8人）。</li>
+  <li>全員に同じお題の表情が提示されます。</li>
+  <li>一人ずつ順番に挑戦 — 3-2-1のカウントダウン後、3秒間測定します。</li>
+  <li>表情の再現度を0〜100点で採点し、最も高得点だった瞬間を
+      静止画として記録します。</li>
+  <li>5ラウンドの合計点で最終順位が決まります。</li>
+</ol>
+<p>端末1台を回して遊ぶパス・アンド・プレイ形式のため、インターネット接続や
+アカウント登録は不要です。</p>
+
+<h2>よくある質問</h2>
+
+<h3>顔が認識されません</h3>
+<ul>
+  <li>顔が画面内に十分な大きさで収まるよう、端末を顔から30〜50cmほど
+      離してください。</li>
+  <li>逆光（窓や照明を背にした状態）では認識率が大きく下がります。
+      光が顔に向かって当たる位置でプレイしてください。</li>
+  <li>暗すぎる場所では認識が困難です。</li>
+  <li>マスク、サングラス、顔を覆う髪の毛は認識の妨げになります。</li>
+  <li>カメラレンズに指紋や汚れが付いていないかご確認ください。</li>
+</ul>
+
+<h3>カメラの権限を誤って拒否してしまいました</h3>
+<p>表情の採点には前面カメラが必須です。権限を拒否してしまった場合は、
+端末の設定から再度許可してください。</p>
+<ul>
+  <li><strong>iPhone</strong>：設定 → 表情バトル → カメラをオン</li>
+  <li><strong>Android</strong>：設定 → アプリ → 表情バトル → 権限 → カメラを許可</li>
+</ul>
+
+<h3>表情を作っているのに点数が上がりません</h3>
+<p>お題は特定の表情筋の動きのみを判定します。例えば「眉はそのままで
+思い切り笑う」というお題では、口角が上がっていても眉が一緒に上がると
+減点されます。画面上のリアルタイムゲージを見ながら、どの動きで点数が
+上がるか確認して調整してみてください。表情には個人差が大きいため、
+難易度の高いお題は思うように上がらないことがありますが、それは正常な
+挙動です。</p>
+
+<h3>順番を進められない場合はどうすればよいですか</h3>
+<p>撮影画面の<strong>「ターンをスキップ」</strong>ボタンを押すと0点として
+処理され、次の順番に進みます。カメラが使えない状況でも最後までゲームの
+流れを進行できます。</p>
+
+<h3>リワード広告を最後まで見たのに報酬がもらえません</h3>
+<p>報酬は広告を最後まで視聴した場合に付与されます。途中で閉じると付与
+されません。最後まで見たのに付与されない場合はネットワークが不安定
+だった可能性があるため、再度お試しください。広告を読み込めない場合は、
+パーティの進行が止まらないよう該当機能をそのまま開放します。</p>
+
+<h3>解除したフレームパック・お題パックがまた
+ロックされてしまいました</h3>
+<p>リワード広告で解除した項目は<strong>現在のゲームセッション中のみ</strong>
+有効です。アプリを完全に終了して再度起動すると、初期状態に戻ります。</p>
+
+<h3>静止画やリキャップコラージュはどこに保存されますか</h3>
+<p>ゲーム中に撮影された静止画はアプリ内に一時的にのみ存在し、セッション
+終了時に消去されます。共有・保存ボタンを押して自ら書き出した写真のみが
+端末に残ります。保存できない場合は、写真へのアクセス権限が許可されて
+いるかご確認ください。</p>
+
+<h3>インターネットなしでもプレイできますか</h3>
+<p>はい。顔認識と採点はすべて端末内で処理されるため、オフラインでも
+ゲームは動作します。ただし広告は表示されません。</p>
+
+<h3>私の顔データはサーバーに送信されますか</h3>
+<p>いいえ。顔認識および表情分析はすべて端末内（オンデバイス）で行われ、
+カメラ映像や顔画像が外部サーバーへ送信または保存されることはありません。
+詳細は<a href="https://rx93nu.github.io/privacy/facebattle">プライバシーポリシー</a>を
+ご確認ください。</p>
+
+<h3>アプリが重い、またはゲージが途切れます</h3>
+<p>他のアプリを終了してメモリを確保し、低電力モードをオフにしてから
+再度お試しください。端末が高温になっている場合も認識速度が低下する
+ことがあります。</p>
+
+<h3>何人まで一緒に遊べますか</h3>
+<p>2人から8人まで登録できます。ラウンドは5ラウンド制です。</p>
+
+<h2>不具合報告・機能のご要望</h2>
+<p>発見された不具合や、追加してほしいお題・機能がございましたら
+<a href="mailto:rx.93.1984@gmail.com">rx.93.1984@gmail.com</a>まで
+お気軽にご連絡ください。どのような状況で問題が再現するかを教えて
+いただけると大変助かります。</p>
+
+<footer>
+<p>表情バトル (Face Battle) · お問い合わせ <a href="mailto:rx.93.1984@gmail.com">rx.93.1984@gmail.com</a><br>
+<a href="https://rx93nu.github.io/privacy/facebattle">プライバシーポリシー</a></p>
+</footer>
+</section>
+
+<!-- ===================== English ===================== -->
+<section class="lang-block" id="block-en">
+<h1>Expression Battle Support</h1>
+<p class="lead">Thank you for playing Expression Battle (Face Battle).
+If something isn't working or you have a question, please check the
+information below first. If that doesn't resolve it, feel free to
+email us and we'll help you out.</p>
+
+<div class="contact">
+<h2 style="margin-top:1em">Contact Us</h2>
+<p>Email: <a href="mailto:rx.93.1984@gmail.com">rx.93.1984@gmail.com</a></p>
+<p>We typically reply within 2–3 days. Including the following details
+when you write to us will help us look into your issue much faster.</p>
+<ul>
+  <li>Device model (e.g. iPhone 15, Galaxy Z Flip5)</li>
+  <li>OS version (e.g. iOS 18.4, Android 15)</li>
+  <li>App version (found on the App Store / Google Play listing page)</li>
+  <li>Which screen the issue occurred on, and what you were doing at the time</li>
+</ul>
+</div>
+
+<h2>How to Play</h2>
+<ol>
+  <li>Register the names of everyone playing (2–8 players).</li>
+  <li>Everyone is shown the same target expression.</li>
+  <li>Each player takes a turn in order — after a 3-2-1 countdown, your
+      expression is measured for 3 seconds.</li>
+  <li>Your expression accuracy is scored from 0 to 100, and the moment
+      with the highest score is captured as a still photo.</li>
+  <li>Final rankings are determined by the combined score across 5 rounds.</li>
+</ol>
+<p>It's a pass-and-play game where everyone shares a single phone, so no
+internet connection or account is required.</p>
+
+<h2>Frequently Asked Questions</h2>
+
+<h3>My face isn't being recognized</h3>
+<ul>
+  <li>Hold the phone about 30–50 cm (12–20 in) from your face so it fills
+      enough of the frame.</li>
+  <li>Backlighting (standing in front of a window or light source) greatly
+      reduces recognition accuracy. Play with light shining toward your
+      face instead.</li>
+  <li>Recognition is difficult in very dark environments.</li>
+  <li>Masks, sunglasses, or hair covering your face can interfere with
+      recognition.</li>
+  <li>Check that the camera lens is free of fingerprints or debris.</li>
+</ul>
+
+<h3>I accidentally denied camera permission</h3>
+<p>The front-facing camera is required for expression scoring. If you
+denied permission, please re-enable it in your device settings.</p>
+<ul>
+  <li><strong>iPhone</strong>: Settings → Expression Battle → turn on Camera</li>
+  <li><strong>Android</strong>: Settings → Apps → Expression Battle → Permissions → allow Camera</li>
+</ul>
+
+<h3>I'm making the expression but my score isn't going up</h3>
+<p>Each mission only checks the movement of specific facial muscles.
+For example, a "smile broadly while keeping your eyebrows still" mission
+will lower your score if your eyebrows rise along with your mouth,
+even if you're smiling widely. Watch the real-time gauge on screen to see
+which movements raise your score, and adjust accordingly. Facial
+expressions vary a lot between people, so it's normal for
+higher-difficulty missions to feel hard to score well on.</p>
+
+<h3>What if I can't take my turn?</h3>
+<p>Tap <strong>Skip Turn</strong> on the capture screen to record a score
+of 0 and move on to the next player. This lets the game continue to the
+end even if the camera can't be used for a turn.</p>
+
+<h3>I watched a rewarded ad all the way through but didn't get my reward</h3>
+<p>Rewards are granted only when the ad is watched to completion; closing
+it early won't trigger the reward. If you watched the full ad and still
+didn't receive it, your network connection may have been unstable —
+please try again. If an ad fails to load, we simply unlock the feature
+directly so it doesn't interrupt your game night.</p>
+
+<h3>The frame pack / mission pack I unlocked got locked again</h3>
+<p>Items unlocked via rewarded ads remain available only for
+<strong>the current game session</strong>. They reset once you fully
+close and relaunch the app.</p>
+
+<h3>Where are still photos and recap collages saved?</h3>
+<p>Still photos captured during gameplay exist only temporarily within
+the app and are removed when the session ends. Only photos you export
+yourself using the share/save button remain on your device. If saving
+isn't working, check that Photos access is allowed in your permissions.</p>
+
+<h3>Can I play without an internet connection?</h3>
+<p>Yes. Facial recognition and scoring are processed entirely on your
+device, so the game works offline. Ads simply won't be shown.</p>
+
+<h3>Is my facial data sent to a server?</h3>
+<p>No. Facial recognition and expression analysis happen entirely
+on-device. Camera footage or facial images are never transmitted to or
+stored on any external server. For details, see our
+<a href="https://rx93nu.github.io/privacy/facebattle">Privacy Policy</a>.</p>
+
+<h3>The app is slow or the gauge is stuttering</h3>
+<p>Close other apps to free up memory, turn off low-power mode, and try
+again. Recognition speed can also drop if your device is running hot.</p>
+
+<h3>How many people can play together?</h3>
+<p>You can register between 2 and 8 players. Games are played over
+5 rounds.</p>
+
+<h2>Report a Bug or Suggest a Feature</h2>
+<p>If you've found a bug or have an idea for a mission or feature you'd
+like to see, feel free to reach out at
+<a href="mailto:rx.93.1984@gmail.com">rx.93.1984@gmail.com</a>. Letting
+us know the exact steps to reproduce an issue is a huge help.</p>
+
+<footer>
+<p>Expression Battle (Face Battle) · Contact <a href="mailto:rx.93.1984@gmail.com">rx.93.1984@gmail.com</a><br>
+<a href="https://rx93nu.github.io/privacy/facebattle">Privacy Policy</a></p>
+</footer>
+</section>
+
+<script>
+  function setLang(lang) {
+    document.querySelectorAll('.lang-block').forEach(function (el) {
+      el.classList.toggle('active', el.id === 'block-' + lang);
+    });
+    document.querySelectorAll('.lang-switch button').forEach(function (btn) {
+      btn.classList.toggle('active', btn.dataset.lang === lang);
+    });
+    try { localStorage.setItem('supportPageLang', lang); } catch (e) {}
+    document.documentElement.lang = lang;
+  }
+
+  (function () {
+    var saved;
+    try { saved = localStorage.getItem('supportPageLang'); } catch (e) {}
+    if (saved && ['ko', 'ja', 'en'].includes(saved)) {
+      setLang(saved);
+    } else {
+      var browserLang = (navigator.language || 'ko').toLowerCase();
+      if (browserLang.startsWith('ja')) setLang('ja');
+      else if (browserLang.startsWith('en')) setLang('en');
+      else setLang('ko');
+    }
+  })();
+</script>
+
 </body>
 </html>

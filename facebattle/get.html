@@ -1,0 +1,99 @@
+
+<!doctype html>
+<!--
+  iOS → App Store(승인 후 아래 APP_STORE_ID 채워야 동작), 그 외 → 이 페이지.
+-->
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>표정 배틀 · Face Battle</title>
+<script>
+  // ── 여기만 관리하면 된다 ─────────────────────────────────────────────
+  var PLAY_ID = 'com.jaehonglee.face_battle';
+  // App Store 승인 후 숫자 ID 입력 (App Store Connect → 앱 정보 → Apple ID).
+  // 비어 있는 동안 iOS는 리다이렉트하지 않고 이 페이지의 안내를 보여준다.
+  var APP_STORE_ID = '';
+  // ────────────────────────────────────────────────────────────────────
+
+  var src = 'qr';
+  try { src = new URLSearchParams(location.search).get('src') || 'qr'; } catch (e) {}
+  src = src.replace(/[^a-z0-9_]/gi, '').slice(0, 24) || 'qr';
+
+  var referrer = encodeURIComponent(
+    'utm_source=app_qr&utm_medium=qr&utm_campaign=' + src);
+  var PLAY_URL = 'https://play.google.com/store/apps/details?id=' + PLAY_ID +
+    '&referrer=' + referrer;
+  // ct= 캠페인 태그는 App Store Connect 앱 분석의 '캠페인'에 잡힌다.
+  var IOS_URL = APP_STORE_ID
+    ? 'https://apps.apple.com/app/id' + APP_STORE_ID + '?ct=' + src + '&mt=8'
+    : '';
+
+  var ua = navigator.userAgent || '';
+  if (/android/i.test(ua)) {
+    location.replace(PLAY_URL);
+  } else if (/iphone|ipad|ipod/i.test(ua) && IOS_URL) {
+    location.replace(IOS_URL);
+  }
+</script>
+<style>
+  :root { color-scheme: dark; }
+  body {
+    margin: 0; min-height: 100vh; display: flex; align-items: center;
+    justify-content: center; text-align: center;
+    background: linear-gradient(135deg, #241528, #141018);
+    color: #fff; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+      Roboto, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+  }
+  main { padding: 32px 24px; max-width: 420px; }
+  .mask { font-size: 72px; margin-bottom: 8px; }
+  h1 { font-size: 28px; margin: 0 0 4px; }
+  .en { color: #e8c6e0; font-size: 15px; margin: 0 0 6px; }
+  p.tag { color: #cbb3c6; font-size: 15px; line-height: 1.6; margin: 0 0 28px; }
+  a.btn {
+    display: block; margin: 12px auto; padding: 15px 20px; max-width: 300px;
+    border-radius: 14px; text-decoration: none; font-weight: 700; font-size: 16px;
+    background: #5e35b1; color: #fff;
+  }
+  a.btn.play { background: #1f7a3d; }
+  .soon {
+    display: block; margin: 12px auto; padding: 14px 20px; max-width: 300px;
+    border-radius: 14px; border: 1px dashed #8b6f9e; color: #cbb3c6; font-size: 14px;
+  }
+  footer { margin-top: 32px; font-size: 12px; color: #8b6f9e; }
+  footer a { color: #8b6f9e; }
+</style>
+</head>
+<body>
+<main>
+  <div class="mask">🎭</div>
+  <h1>표정 배틀</h1>
+  <p class="en">Face Battle · 顔バトル</p>
+  <p class="tag">제시된 표정을 따라 하면 AI가 채점!<br>
+    폰 하나로 2~8명이 즐기는 패스앤플레이 파티게임</p>
+
+  <a class="btn play" id="playBtn" href="#">Google Play에서 받기</a>
+  <span id="iosSlot"></span>
+
+  <footer>
+    <a href="https://rx93nu.github.io/privacy/facebattle">개인정보처리방침</a> ·
+    <a href="https://rx93nu.github.io/privacy/facebattle/support">지원</a>
+  </footer>
+</main>
+<script>
+  document.getElementById('playBtn').href = PLAY_URL;
+  var slot = document.getElementById('iosSlot');
+  if (IOS_URL) {
+    var a = document.createElement('a');
+    a.className = 'btn'; a.href = IOS_URL; a.textContent = 'App Store에서 받기';
+    slot.appendChild(a);
+  } else {
+    var d = document.createElement('span');
+    d.className = 'soon';
+    d.textContent = 'iPhone: App Store에서 “표정 배틀” 검색 (Face Battle)';
+    slot.appendChild(d);
+  }
+</script>
+</body>
+</html>
